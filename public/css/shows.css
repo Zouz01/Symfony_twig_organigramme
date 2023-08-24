@@ -1,0 +1,163 @@
+/* Styles pour le contenu principal */
+body {
+    background: #F5EEC9;
+}
+
+div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2, h3, h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Styles pour les liens */
+a {
+    text-decoration: none;
+    color: #007BFF;
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #007BFF;
+    border-radius: 50px;
+    background-color: #EFEFFF;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Styles pour les titres */
+h3 {
+    margin-bottom: 5px;
+}
+
+/* Styles pour le titre principal */
+h1.title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    color: #333; /* Couleur de texte */
+    text-transform: uppercase; /* Mise en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */
+}
+
+/* Styles pour l'indentation */
+.team-list {
+    padding-left: 20px; 
+}
+
+/* Styles pour les positions */
+.positions {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555; /* Couleur pour le texte des positions */
+    margin-bottom: 5px;
+}
+
+/* Styles additionnels pour la mise en page de l'organigramme */
+.org {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px; /* Espacement entre les éléments */
+}
+
+.rang-1,
+.rang-2,
+.rang-3,
+.rang-4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rang-1 {
+    justify-content: center;
+}
+
+.rang-2 {
+    justify-content: center;
+}
+
+.rang-3 {
+    justify-content: left;
+}
+
+.rang-4 {
+    justify-content: left;
+}
+
+.manager,
+.position-of-2nd-rank,
+.position-of-3rd-rank,
+.stagiaire {
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.manager img,
+.position-of-2nd-rank img,
+.position-of-3rd-rank img,
+.stagiaire img {
+    width: 100px;
+    border-radius: 50%;
+    flex-direction: column;
+}
+
+/* Ajustements pour aligner les positions du 2e rang */
+.position-of-2nd-rank {
+    width: 120px; /* Ajustez la largeur si nécessaire */
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+}
+
+.subordinate {
+    text-align: center;
+    flex-basis: calc(33.33% - 40px); /* Répartir en 3 colonnes */
+    margin: 10px;
+}
+
+.subordinate img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+/* Couleurs des départements/sections */
+.rang-1 a {
+    background: #FFD600;
+}
+
+.rang-2 a {
+    background: #AAD4E7;
+}
+
+.rang-3 a {
+    background: #FDB0FD;
+}
+
+.rang-4 a {
+    background: #A3A2A2;
+}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+
+   {% block body %}
+<h1>Organigramme hiérarchique</h1>
+
+{# <div class="org-chart">
+    {% for teamItem in team %}
+        <div class="manager">
+            <a href="{{ path('app_shows', { 'id': teamItem.id }) }}">
+                <img src="{{ asset(teamItem.photo) }}" alt="{{ teamItem.firstname }} {{ teamItem.lastname }}">
+                <h3>{{ teamItem.firstname }} {{ teamItem.lastname }}</h3>
+                <span class="position">{{ teamItem.positions[0].label }}</span>
+            </a>
+            <div class="subordinates">
+                <!-- Add nested subordinates here if needed -->
+            </div>
+        </div>
+    {% endfor %}
+</div> #}
+
+<div class="rang-2">
+      {% for position in positions %}
+      {% if position.label == 'Lead dev' or position.label == 'Commercial'  or position.label == 'Comptable' %}
+        {% for team in position.teams %}
+          <a href="{{ path('app_show', {"id": teamItem.id}) }}">
+            <div class="team-item">
+              <img class="profil-img" src="{{asset(teamItem.photo)}}" alt="">
+               <h3>{{ teamItem.firstname }} {{ teamItem.lastname }}</h3>
+              <p>({{position.label}})</p>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    {# <div class="rang-3">
+      {% for position in positions %}
+      {% if position.label == 'Dev' or position.label == 'UI/UX' %}
+        {% for team in position.teams %}
+          <a href="{{ path('team_show', {"id": team.id}) }}">
+            <div class="team-item">
+              <img class="profil-img" src="{{asset(team.imageName)}}" alt="">
+              <h3>{{ team.fullname }}</h3>
+              <p>({{position.label}})</p>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </div> #}
+
+{% endblock %}
+
+</body>
+</html>

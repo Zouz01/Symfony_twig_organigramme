@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Organigramme hiérarchique</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><text y='1.2em' font-size='96'>⚫️</text></svg>">
+    <link rel="stylesheet" href="{{ asset('css/shows.css') }}">
+</head>
+<body>
+    <h1>Organigramme hiérarchique</h1>
+    <div class="org-chart">
+        {% for teamMember in team %}
+            {% if teamMember.manager_id is null %}
+                <div class="manager">
+                    <a href="{{ path('app_shows', { 'id': teamMember.id }) }}">
+                        <img src="{{ asset(teamMember.photo) }}" alt="{{ teamMember.firstname }} {{ teamMember.lastname }}">
+                        <h3>{{ teamMember.firstname }} {{ teamMember.lastname }}</h3>
+                    </a>
+                    <div class="subordinates">
+                        {% for subordinate in team %}
+                            {% if subordinate.manager_id == teamMember.id %}
+                                <div class="subordinate">
+                                    <a href="{{ path('app_shows', { 'id': subordinate.id }) }}">
+                                        <img src="{{ asset(subordinate.photo) }}" alt="{{ subordinate.firstname }} {{ subordinate.lastname }}">
+                                        <h3>{{ subordinate.firstname }} {{ subordinate.lastname }}</h3>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

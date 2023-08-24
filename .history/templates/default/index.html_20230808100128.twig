@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Organigramme hiérarchique</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><text y='1.2em' font-size='96'>⚫️</text></svg>">
+    <link rel="stylesheet" href="{{ asset('css/shows.css') }}">
+</head>
+<body>
+   {% block body %}
+<h1 class="title">Organigramme hiérarchique</h1>
+
+<div class="org-chart">
+    {% for position in positions %}
+        <div class="manager">
+            <h2>{{ position.label }}</h2>
+            {% for teamItem in position.team %}
+                <div class="subordinate">
+                    <img src="{{ asset(teamItem.photo) }}" alt="{{ teamItem.firstname }} {{ teamItem.lastname }}">
+                    <h3>{{ teamItem.firstname }} {{ teamItem.lastname }}</h3>
+                    <span>{{ teamItem.positions[0].label }}</span>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>

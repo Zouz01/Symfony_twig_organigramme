@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+        {% endblock %}
+
+   {% block body %}
+<h1>Organigramme hiérarchique</h1>
+
+
+
+<div class="rang-2">
+      {% for position in positions %}
+      {% if position.label == 'Lead dev' or position.label == 'Commercial'  or position.label == 'Comptable' %}
+        {% for team in position.teams %}
+          <a href="{{ path('app_show', {"id": teamItem.id}) }}">
+            <div class="team-item">
+              <img class="profil-img" src="{{asset(teamItem.photo)}}" alt="">
+               <h3>{{ teamItem.firstname }} {{ teamItem.lastname }}</h3>
+              <p>({{position.label}})</p>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </div>
+
+{% endblock %}

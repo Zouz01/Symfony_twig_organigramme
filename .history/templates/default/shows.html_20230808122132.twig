@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+ {% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('css/shows.css') }}">
+        {% endblock %}
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+<div class= "">
+<img src = "{{asset(team.photo)}}">
+<h1> {{ team.firstname}} {{ team.lastname}} : {% for position in team.positions %} {{position.label}}
+    
+{% endfor %}</h1>
+
+<h2>Age : {{ team.age }}</h2>
+                &nbsp;
+                <h3>Adresse : {{ team.adresse}}</h3>
+                &nbsp;
+                <h4>Telephone : {{ team.tel}}</h4>
+                &nbsp;
+               
+
+                 {% if team.mail %}
+            <h4>Email : <a href="mailto:{{ team.mail }}">{{ team.mail }}</a></h4>
+        {% endif %}
+
+                {% if team.cv %}
+            <h4>CV : <a href="{{ asset(team.cv) }}">Télécharger le CV</a></h4>
+        {% endif %}
+</div>
+
+{% endblock %}

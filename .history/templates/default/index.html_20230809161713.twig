@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>
+        Organigramme hiérarchique
+    </h1>
+    <div class="organigramme">
+        <div class="rang-1">
+            {% for team in positions %}
+                {% if team.positions[0].label == 'Gérant' %}
+                    <div class="information">
+                        <a href="{{ path('app_shows', { 'id': team.id }) }}">
+                            <img src="{{ asset(team.photo) }}" alt="{{ team.firstname }} {{ team.lastname }}">
+                            <h3>
+                                {{ team.firstname }} {{ team.lastname }}
+                            </h3>
+                            <span class="position">
+                                {{ team.positions[0].label }}
+                            </span>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="rang-2">
+            {% for team in positions %}
+                {% if team.positions[0].label == 'Commercial' or team.positions[0].label == 'Comptabilité' or team.positions[0].label == 'Lead Dev' %}
+                    <div class="information">
+                        <a href="{{ path('app_shows', { 'id': team.id }) }}">
+                            <img src="{{ asset(team.photo) }}" alt="{{ team.firstname }} {{ team.lastname }}">
+                            <h3>
+                                {{ team.firstname }} {{ team.lastname }}
+                            </h3>
+                            <span class="position">
+                                {{ team.positions[0].label }}
+                            </span>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="rang-3">
+            {% for team in positions %}
+                {% if team.positions[0].label == 'Dev' or team.positions[0].label == 'UI/UX' %}
+                    <div class="information">
+                        <a href="{{ path('app_shows', { 'id': team.id }) }}">
+                            <img src="{{ asset(team.photo) }}" alt="{{ team.firstname }} {{ team.lastname }}">
+                            <h3>
+                                {{ team.firstname }} {{ team.lastname }}
+                            </h3>
+                            <span class="position">
+                                {{ team.positions[0].label }}
+                            </span>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="rang-4">
+            {% for team in positions %}
+                {% if team.positions[0].label == 'Stagiaire' %}
+                    <div class="information">
+                        <a href="{{ path('app_shows', { 'id': team.id }) }}">
+                            <img src="{{ asset(team.photo) }}" alt="{{ team.firstname }} {{ team.lastname }}">
+                            <h3>
+                                {{ team.firstname }} {{ team.lastname }}
+                            </h3>
+                            <span class="position">
+                                {{ team.positions[0].label }}
+                            </span>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,119 @@
+/* styles pour le contenu principal */
+div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2, h3, h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* styles pour les liens */
+/* a {
+    color: #007BFF;
+    text-decoration: none;
+    
+} */
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* styles pour la liste des équipes */
+body {
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #007BFF;
+    border-radius: 50px;
+    background-color: #EFEFFF;
+    transition: background-color 0.3s, color 0.3s;
+    
+}
+
+a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+h3 {
+    margin-bottom: 5px;
+}
+
+/* Styles pour l'indentation */
+.team-list {
+    padding-left: 20px; 
+}
+.position {
+    display: block;
+    margin-left: 20px; 
+}
+
+/* styles pour les positions */
+.positions {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.positions span {
+    margin-right: 5px;
+    color: #555;
+}
+
+/* styles pour les espacements */
+&:not(:last-child) {
+    margin-bottom: 15px;
+}
+/* Your existing CSS for the 'a' tag can be used to style the links in the organigramme. */
+
+/* Additional CSS for the organigramme layout */
+.org-chart {
+    display: flex;
+    justify-content: center;
+}
+
+.manager {
+    text-align: center;
+    margin: 20px;
+}
+
+.manager img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.subordinates {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.subordinate {
+    text-align: center;
+}
+
+.subordinate img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+/* Add additional CSS rules for nested subordinates if needed. */

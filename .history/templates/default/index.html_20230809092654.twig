@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Organigramme hiérarchique</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><text y='1.2em' font-size='96'>⚫️</text></svg>">
+    <link rel="stylesheet" href="{{ asset('css/shows.css') }}">
+</head>
+<body>
+   {% block body %}
+<h1>Organigramme hiérarchique</h1>
+
+<div class="organigramme">
+    <div class="rang-1">
+        {% for position in positions %}
+        {% if position.label == 'Gérant' %}
+        {% for team in position.teams %}
+            <div class="manager">
+                <a href="{{ path('app_shows', { 'id': teamItem.id }) }}">
+                <img src="{{ asset(teamItem.photo) }}" alt="{{ teamItem.firstname }} {{ teamItem.lastname }}">
+                <h3>{{ teamItem.firstname }} {{ teamItem.lastname }}</h3>
+                <span class="position">{{ teamItem.positions[0].label }}</span>
+                </a><:
+            <div class="subordinates">
+                <!-- Add nested subordinates here if needed -->
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+</body>
+</html>
